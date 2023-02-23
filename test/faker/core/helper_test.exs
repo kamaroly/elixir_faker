@@ -1,6 +1,6 @@
-defmodule Core.HelperTest do
+defmodule Faker.Core.HelperTest do
   use ExUnit.Case, async: false
-  alias Core.Helper
+  alias Faker.Core.Helper
 
   describe "Test helpers can format numbers approprietly" do
     test "'### ### #### ###' returns format 323 848 9483 492" do

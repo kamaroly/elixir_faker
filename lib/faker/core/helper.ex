@@ -1,5 +1,5 @@
-defmodule Core.Helper do
-  alias Core.Number
+defmodule Faker.Core.Helper do
+  alias Faker.Core.Number
 
   def random_element(list_of_elements) do
     Enum.random(list_of_elements)

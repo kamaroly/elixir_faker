@@ -1,6 +1,6 @@
-defmodule Core.NumberTest do
+defmodule Faker.Core.NumberTest do
   use ExUnit.Case, async: false
-  alias Core.Number
+  alias Faker.Core.Number
 
   describe "test Core Number Unit Functions" do
     test "number_between returns random number between 2 integer" do

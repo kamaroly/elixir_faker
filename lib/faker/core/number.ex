@@ -1,4 +1,4 @@
-defmodule Core.Number do
+defmodule Faker.Core.Number do
   @moduledoc """
   A module to generate with Random numbers for Elixir Faker.
   
