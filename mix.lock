@@ -1,0 +1,4 @@
+%{
+  "quickrand": {:hex, :quickrand, "2.0.5", "06fcad85cb47d5c85c51d6bc9c84a082501ba098a89d64ad0a2f69599e034c04", [:rebar3], [], "hexpm", "252cf0493570ebf1a58985cb71990982cddcd4396b6427f1e10cf58924c1c052"},
+  "random_string": {:hex, :random_string, "0.3.0", "58f75b8efdee082118cfb48ae154e0b603b77ac9e1132635376ce725b7913d9d", [:mix], [], "hexpm", "58dea1bb9919b887548cced9e90fb4878d1f5fab6a832879caf8258f3ad823c4"},
+}
