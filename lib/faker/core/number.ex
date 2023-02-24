@@ -99,4 +99,20 @@ defmodule Faker.Core.Number do
   def random_maximum(min \\ 2_147_000_000, max \\ 2_147_483_647) do
     number_between(min, max)
   end
+
+  @doc """
+   Converts Decimal to Hex
+  """
+  def dec_to_hex(number) do
+    Integer.to_string(number, 16)
+  end
+
+  @doc """
+   Convert Hex back to decimal
+  """
+  def hex_to_dec(string) do
+    {decimal, ""} = Integer.parse(string, 16)
+
+    decimal
+  end
 end
