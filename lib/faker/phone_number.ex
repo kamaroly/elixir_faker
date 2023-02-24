@@ -224,8 +224,8 @@ defmodule Faker.PhoneNumber do
     "+998#########"
   ]
 
+  # Localised format
   @mobile_formats [
-    # Local
     "07#########",
     "07### ######",
     "07### ### ###"
@@ -235,11 +235,24 @@ defmodule Faker.PhoneNumber do
     "+44##########"
   ]
 
-  @doc """
-  Returns random phone_number
-  
-  Example: "555-123-546"
-  """
+  def mobile_number(:localized) do
+    @mobile_formats
+    |> Enum.at(0)
+    |> Helper.numerify()
+  end
+
+  def mobile_number(:localized_format) do
+    @mobile_formats
+    |> Enum.at(1)
+    |> Helper.numerify()
+  end
+
+  def mobile_number(:localized_pretify) do
+    @mobile_formats
+    |> Enum.at(2)
+    |> Helper.numerify()
+  end
+
   def mobile_number() do
     @formats
     |> Helper.random_element()
@@ -251,7 +264,7 @@ defmodule Faker.PhoneNumber do
   
   Example: +11134567890
   """
-  def e164PhoneNumber() do
+  def e164_phone_number() do
     @e164Formats
     |> Helper.random_element()
     |> Helper.numerify()
