@@ -231,7 +231,7 @@ defmodule Faker.PhoneNumber do
     "07### ### ###"
   ]
 
-  @e164Formats [
+  @e164_formats [
     "+44##########"
   ]
 
@@ -265,7 +265,7 @@ defmodule Faker.PhoneNumber do
   Example: +11134567890
   """
   def e164_phone_number() do
-    @e164Formats
+    @e164_formats
     |> Helper.random_element()
     |> Helper.numerify()
   end

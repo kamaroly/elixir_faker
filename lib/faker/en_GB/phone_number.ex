@@ -19,14 +19,14 @@ defmodule Faker.EnGB.PhoneNumber do
   ]
 
   #  An array of en_GB mobile (cell) phone number formats
-  @mobileFormats [
+  @mobile_formats [
     #  Local
     "07#########",
     "07### ######",
     "07### ### ###"
   ]
 
-  @e164Formats [
+  @e164_formats [
     "+44##########"
   ]
 
@@ -35,6 +35,24 @@ defmodule Faker.EnGB.PhoneNumber do
   
   Example: "555-123-546"
   """
+  def mobile_number(:localized) do
+    @mobile_formats
+    |> Enum.at(0)
+    |> Helper.numerify()
+  end
+
+  def mobile_number(:localized_format) do
+    @mobile_formats
+    |> Enum.at(1)
+    |> Helper.numerify()
+  end
+
+  def mobile_number(:localized_pretify) do
+    @mobile_formats
+    |> Enum.at(2)
+    |> Helper.numerify()
+  end
+
   def mobile_number() do
     @formats
     |> Helper.random_element()
@@ -46,8 +64,8 @@ defmodule Faker.EnGB.PhoneNumber do
   
   Example: +11134567890
   """
-  def e164PhoneNumber() do
-    @e164Formats
+  def e164_phone_number() do
+    @e164_formats
     |> Helper.random_element()
     |> Helper.numerify()
   end
