@@ -78,7 +78,7 @@ defmodule Faker.EnGB.PhoneNumber do
      *
      * @example "720084494799532"
      *
-     * @return int $imei
+     * @return int imei
   """
   def imei() do
     Helper.numerify("##############")
