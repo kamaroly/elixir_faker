@@ -61,22 +61,19 @@ Faker.mobile_number # "07738 640 316", "+3801984610701"
 #### Internet
 
 ```ex
-  Faker.email
-  Faker.safe_email
-  Faker.free_email
-  Faker.company_email
-  Faker.free_email_domain
-  Faker.safe_email_domain
-  Faker.username
-  Faker.password
-  Faker.domain_word
-  Faker.domain_name
-  Faker.tld
-  Faker.url
-  Faker.slug
-  Faker.ipv4
-  Faker.local_ipv4
-  Faker.mac_address
+  Faker.email # "wilderman.haag@rolfson.net"
+  Faker.safe_email # "koss.kshlerin@example.org"
+  Faker.free_email # "s_corkery@hotmail.com"
+  Faker.company_email # "arthur_22@torphy.info"
+  Faker.username # "anastacio_97"
+  Faker.password # "xXM|g/9V&o_HfkJR"
+  Faker.domain_name # "bahringer.com"
+  Faker.tld # "biz"
+  Faker.url # "https://lang.com/veritatis-est-inventore-repellendus-dignissimos-eos.html"
+  Faker.slug # "quod-est-tempora-maiores-suscipit-doloremque"
+  Faker.ipv4 # "133.56.83.83"
+  Faker.local_ipv4 # "192.168.0.32"
+  Faker.mac_address # "9C:DE:77:BC:95:F"
 ```
 
 #### Phone Number
