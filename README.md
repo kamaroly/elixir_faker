@@ -29,21 +29,21 @@ Faker.mobile_number # "07738 640 316", "+3801984610701"
 #### Health
 
 ```ex
-  Faker.blood_group
+  Faker.blood_group #  "A+"
 ```
 
 #### Colors
 
 ```ex
-  Faker.hex_color
-  Faker.safe_hex_color
-  Faker.rgb_color_as_array
-  Faker.rgb_color
-  Faker.rgb_css_color
-  Faker.safe_color_name
-  Faker.color_name
-  Faker.hsl_color_as_array
-  Faker.hsl_color
+  Faker.hex_color #  "#fa3cc2"
+  Faker.safe_hex_color # "#ff0044"
+  Faker.rgb_color_as_array # [0,255,122]
+  Faker.rgb_color # "0,255,122"
+  Faker.rgb_css_color # "rgba(0,255,122,0.8)"
+  Faker.safe_color_name # "silver"
+  Faker.color_name # "floral_white"
+  Faker.hsl_color_as_list # [348, 85, 51]
+  Faker.hsl_color # "340,50,20"
 ```
 
 #### Person

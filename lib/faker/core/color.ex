@@ -1,8 +1,8 @@
 defmodule Faker.Core.Color do
+  use Faker.Core.Generator
+
   defmacro __using__(_) do
     quote do
-      alias Faker.Core.Generator
-
       @safe_color_names [
         "black",
         "maroon",
@@ -177,8 +177,8 @@ defmodule Faker.Core.Color do
       """
       def hex_color() do
         hex_code =
-          Generator.number_between(1, 16_777_215)
-          |> Base.dec_to_hex()
+          number_between(1, 16_777_215)
+          |> dec_to_hex()
           |> String.pad_leading(6, "0")
 
         "#" <> hex_code
@@ -195,8 +195,8 @@ defmodule Faker.Core.Color do
       """
       def safe_hex_color() do
         hex_code =
-          Generator.number_between(0, 255)
-          |> Base.dec_to_hex()
+          number_between(0, 255)
+          |> dec_to_hex()
           |> String.pad_leading(3, "0")
           |> String.graphemes()
 
@@ -222,9 +222,9 @@ defmodule Faker.Core.Color do
         color = hex_color()
 
         [
-          String.slice(color, 1, 2) |> Generator.hex_to_dec(),
-          String.slice(color, 3, 2) |> Generator.hex_to_dec(),
-          String.slice(color, 5, 2) |> Generator.hex_to_dec()
+          String.slice(color, 1, 2) |> hex_to_dec(),
+          String.slice(color, 3, 2) |> hex_to_dec(),
+          String.slice(color, 5, 2) |> hex_to_dec()
         ]
       end
 
@@ -252,7 +252,7 @@ defmodule Faker.Core.Color do
       """
       def rgb_css_color() do
         template = "rgba(PLACEHOLDER)"
-        css_color = Generator.random_float(1, 0, 1) |> Float.to_string()
+        css_color = random_float(1, 0, 1) |> Float.to_string()
         css_color = rgb_color() <> "," <> css_color
 
         String.replace(template, "PLACEHOLDER", css_color)
@@ -265,9 +265,9 @@ defmodule Faker.Core.Color do
       
       ## Examples
         iex> Faker.Core.Color.safe_color_name
-            "rgba(0,255,122,0.8)""
+            "silver"
       """
-      def safe_color_name(), do: Base.random_element(@safe_color_names)
+      def safe_color_name(), do: Enum.random(@safe_color_names)
 
       @doc """
       Generates color
@@ -275,10 +275,10 @@ defmodule Faker.Core.Color do
       Returns `String`
       
       ## Examples
-        iex> Faker.Core.Color.rgb_css_color
-            "navajo_white"
+        iex> Faker.Core.Color.color_name
+            "floral_white"
       """
-      def color_name(), do: Base.random_element(@all_color_names)
+      def color_name(), do: random_element(@all_color_names)
 
       @doc """
       Generates hsl color array
@@ -286,14 +286,14 @@ defmodule Faker.Core.Color do
       Returns `List`
       
       ## Examples
-        iex> Faker.Core.Color.hsl_color_as_array
+        iex> Faker.Core.Color.hsl_color_as_list
             [348, 85, 51]
       """
-      def hsl_color_as_array() do
+      def hsl_color_as_list() do
         [
-          Generator.number_between(0, 360),
-          Generator.number_between(0, 100),
-          Generator.number_between(0, 100)
+          number_between(0, 360),
+          number_between(0, 100),
+          number_between(0, 100)
         ]
       end
 
@@ -303,14 +303,14 @@ defmodule Faker.Core.Color do
       Returns `String`
       
       ## Examples
-        iex> Faker.Core.Color.hsl_color_as_array
+        iex> Faker.Core.Color.hsl_color
             "340,50,20"
       """
       def hsl_color() do
         [
-          Generator.number_between(0, 360),
-          Generator.number_between(0, 100),
-          Generator.number_between(0, 100)
+          number_between(0, 360),
+          number_between(0, 100),
+          number_between(0, 100)
         ]
         |> Enum.join(",")
       end
