@@ -1,5 +1,5 @@
 defmodule Faker.Core.Text do
-  alias Faker.Core.Number
+  alias Faker.Core.Generator
   alias Faker.Core.Base
 
   @base_text """
@@ -128,7 +128,7 @@ defmodule Faker.Core.Text do
       |> Enum.join(@separator)
 
     # Get Random number to use
-    min_max_diff = Number.number_between(min_char, max_char)
+    min_max_diff = Generator.number_between(min_char, max_char)
 
     diff_words =
       splited_text()

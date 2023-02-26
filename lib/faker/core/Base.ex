@@ -18,19 +18,6 @@ defmodule Faker.Core.Base do
   end
 
   @doc """
-  Picks a random element from a list
-  
-  Return `List` or `Tuple`
-  
-  ## Examples:
-            iex> Faker.Core.Helper.random_elements([32, 4, 7, 8])
-                32
-  """
-  def random_element(elements) when is_list(elements) or is_tuple(elements) do
-    Enum.random(elements)
-  end
-
-  @doc """
   Replaces all hash sign ('#') occurrences with a random number
   Replaces all percentage sign ('%') occurrences with a non-zero number.
   
@@ -110,7 +97,7 @@ defmodule Faker.Core.Base do
 
         # Replace * with either number or letter
         "*" ->
-          random_element([
+          Generator.random_element([
             Generator.random_digit(),
             Generator.random_letter()
           ])
@@ -184,5 +171,33 @@ defmodule Faker.Core.Base do
 
   def shuffle(item) when is_bitstring(item) do
     item |> String.graphemes() |> Enum.shuffle() |> Enum.join("")
+  end
+
+  @doc """
+  Validate if a string is a vowel or not
+  
+  Returns `boolean`
+  
+  ## Examples
+  
+      iex> Faker.Core.Generator.is_vowerl("a")
+           true
+  """
+  def is_vowel?(char) do
+    String.contains?("iuoae", char)
+  end
+
+  @doc """
+  Validate if a string is a vowel or not
+  
+  Returns `boolean`
+  
+  ## Examples
+  
+      iex> Faker.Core.Generator.is_not_vowerl("k")
+           false
+  """
+  def is_not_vowel(char) do
+    is_vowel?(char) == false
   end
 end

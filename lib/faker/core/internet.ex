@@ -40,7 +40,9 @@ defmodule Faker.Core.Internet do
   ]
 
   def username() do
-    format = Generator.random_element(@username_format)
+    Generator.random_element(@username_format)
+    |> Generator.parse()
+    |> Base.bothify()
   end
 
   @doc """

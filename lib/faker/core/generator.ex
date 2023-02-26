@@ -1,6 +1,4 @@
 defmodule Faker.Core.Generator do
-  alias Faker.Core.Number
-
   @doc """
   Generates a random integer between two numbers.
   
@@ -85,6 +83,19 @@ defmodule Faker.Core.Generator do
   end
 
   @doc """
+  Picks a random element from a list
+  
+  Return `List` or `Tuple`
+  
+  ## Examples:
+            iex> Faker.Core.Helper.random_elements([32, 4, 7, 8])
+                32
+  """
+  def random_element(elements) when is_list(elements) or is_tuple(elements) do
+    Enum.random(elements)
+  end
+
+  @doc """
   Exchange two number positions
   
   Returns `Struct`
@@ -131,5 +142,30 @@ defmodule Faker.Core.Generator do
   """
   def random_ascii() do
     <<number_between(33, 126)>>
+  end
+
+  @doc """
+  Replaces tokens ('{{ tokenName }}') with the result from the token method call
+  
+  Returns `String`
+  
+  ## Examples
+          iex> Faker.Core.Generator.parse("{{first_name}}.{{last_name}}")
+               ???????.??????
+  
+  """
+  def parse(string, fill_in_char \\ "?", split_char \\ ".") do
+    string
+    |> String.split(split_char)
+    |> Enum.map(fn item ->
+      # Identify all substring with pattern {{}}
+      Regex.scan(~r/\{\{.+?\}\}/, item)
+    end)
+    |> List.flatten()
+    |> Enum.map(fn item ->
+      # Replace identified substring with fill in char("?" per default)
+      String.replace(item, ~r/./, fill_in_char)
+    end)
+    |> Enum.join(split_char)
   end
 end
