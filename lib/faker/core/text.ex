@@ -145,4 +145,36 @@ defmodule Faker.Core.Text do
   def real_text(max_char \\ 200) do
     real_text_between(max_char, max_char)
   end
+
+  @doc """
+  Strips whitespace (or other characters) from the end of a string
+  
+  Returns `String`
+  
+  ## Example
+  
+        iex> Faker.Core.Text.right_trim("Kamaro.Lambert", ".")
+            "Kamaro"
+  """
+  def right_trim(string, separator \\ " ") do
+    string
+    |> String.split(separator)
+    |> Enum.at(0)
+  end
+
+  @doc """
+  Strips whitespace (or other characters) from the end of a string
+  
+  Returns `String`
+  
+  ## Example
+  
+        iex> Faker.Core.Text.left_trim("Kamaro.Lambert", ".")
+            "Lambert"
+  """
+  def left_trim(string, separator \\ " ") do
+    string
+    |> String.split(separator)
+    |> Enum.at(1)
+  end
 end

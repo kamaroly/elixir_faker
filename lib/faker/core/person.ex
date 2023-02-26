@@ -1,7 +1,5 @@
 defmodule Faker.Core.Person do
   alias Faker.Core.Generator
-  alias Mix.Tasks.Help
-  alias Faker.Core.Helper
 
   @title_format [
     "{{title_male}}",
