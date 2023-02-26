@@ -49,12 +49,13 @@ Faker.mobile_number # "07738 640 316", "+3801984610701"
 #### Person
 
 ```ex
-  Faker.suffix
-  Faker.title_male
-  Faker.title_female
-  Faker.name
-  Faker.first_name
-  Faker.last_name
+  Faker.suffix # "Sr."
+  Faker.title_male # "Mr."
+  Faker.title_female # "Mrs."
+  Faker.name # "Bosco Hills"
+  Faker.first_name("male") # "Graham"
+  Faker.first_name("female") # "Ledner"
+  Faker.last_name # "Larson"
 ```
 
 #### Internet
