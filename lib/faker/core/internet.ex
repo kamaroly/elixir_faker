@@ -215,10 +215,23 @@ defmodule Faker.Core.Internet do
         Enum.random(@tld)
       end
 
+      @doc """
+      Generates a random url
+      """
       def url() do
         @url_formats
         |> Enum.random()
-        |> String.replace("{{domain_name}}", username())
+        |> String.replace("{{domain_name}}", domain_name())
+        |> String.replace("{{slug}}", slug())
+        |> String.downcase()
+      end
+
+      @doc """
+      Generates a random slug
+      """
+      def slug(number_of_words \\ 6) do
+        words(number_of_words)
+        |> Enum.join("-")
       end
 
       @doc """
