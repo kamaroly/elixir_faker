@@ -4,8 +4,6 @@ Faker is a Elixir package that generates fake data for you. Whether you need to 
 
 It's heavily inspired by FakerPHP Library.
 
-**WORNING** - Under development
-
 ### Examples
 
 ```ex
