@@ -38,6 +38,7 @@ defmodule ElixirFaker.MixProject do
 
   defp package() do
     [
+      name: "elixir_faker",
       # These are the default files included in the package
       files: ~w(lib mix.exs doc README* test),
       licenses: ["MIT"],
