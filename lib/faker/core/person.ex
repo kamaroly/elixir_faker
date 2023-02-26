@@ -1,5 +1,7 @@
 defmodule Faker.Core.Person do
-  alias Faker.Core.Generator
+
+  defmacro __using__(_) do
+    quote do
 
   @title_format [
     "{{title_male}}",
@@ -2545,31 +2547,38 @@ defmodule Faker.Core.Person do
 
   @suffix ["Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD", "DDS", "PhD", "DVM"]
 
-  def suffix(), do: Generator.random_element(@suffix)
-  def title_male(), do: Generator.random_element(@title_male)
-  def title_female(), do: Generator.random_element(@title_female)
 
-  def name(gender) when gender == "male" do
-    first_name(gender) <> " " <> last_name()
-  end
+      def suffix(), do: Enum.random(@suffix)
+      def title_male(), do: Enum.random(@title_male)
+      def title_female(), do: Enum.random(@title_female)
 
-  def first_name(gender) when gender == "male" do
-    Generator.random_element(@first_name_male)
-  end
+      def name(gender) when gender == "male" do
+        first_name(gender) <> " " <> last_name()
+      end
 
-  def first_name(gender) when gender == "female" do
-    Generator.random_element(@first_name_female)
-  end
+      def name() do
+        first_name() <> " " <> last_name()
+      end
 
-  def first_name() do
-    [
-      first_name("male"),
-      first_name("female")
-    ]
-    |> Generator.random_element()
-  end
+      def first_name(gender) when gender == "male" do
+        Enum.random(@first_name_male)
+      end
 
-  def last_name() do
-    Generator.random_element(@last_name)
+      def first_name(gender) when gender == "female" do
+        Enum.random(@first_name_female)
+      end
+
+      def first_name() do
+        [
+          first_name("male"),
+          first_name("female")
+        ]
+        |> Enum.random()
+      end
+
+      def last_name() do
+        Enum.random(@last_name)
+      end
+    end
   end
 end
