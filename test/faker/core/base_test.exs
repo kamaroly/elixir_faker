@@ -1,17 +1,17 @@
-defmodule Faker.Core.HelperTest do
+defmodule Faker.Core.BaseTest do
   use ExUnit.Case, async: false
-  alias Faker.Core.Helper
+  alias Faker.Core.Base
 
-  describe "Test helpers can format numbers approprietly" do
+  describe "Test Base can format numbers approprietly" do
     test "'### ### #### ###' returns format 323 848 9483 492" do
-      results = Helper.numerify("### ### #### ###")
+      results = Base.numerify("### ### #### ###")
 
       assert String.contains?(results, "#") == false
       assert String.length(results) == String.length("### ### #### ###")
     end
 
     test "'##' returns format 323 84835" do
-      results = Helper.lexify("##")
+      results = Base.lexify("##")
 
       assert is_bitstring(results)
       assert String.contains?(results, "#") == false
@@ -19,7 +19,7 @@ defmodule Faker.Core.HelperTest do
     end
 
     test "'##' returns format bothify" do
-      results = Helper.bothify("##")
+      results = Base.bothify("##")
 
       assert is_bitstring(results)
       assert String.contains?(results, "#") == false
@@ -29,7 +29,7 @@ defmodule Faker.Core.HelperTest do
     test "Returns random element from the list" do
       list = [2938, "aka", "29", 392]
 
-      results = Helper.random_element(list)
+      results = Base.random_element(list)
 
       assert Enum.member?(list, results)
     end

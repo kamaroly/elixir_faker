@@ -1,6 +1,6 @@
 defmodule Faker.Core.Text do
   alias Faker.Core.Number
-  alias Faker.Core.Generator
+  alias Faker.Core.Base
 
   @base_text """
   The Beginning of Knowledge
@@ -120,10 +120,10 @@ defmodule Faker.Core.Text do
                           produce more correct text, at the price of less randomness.
   
   """
-  def real_text_between(min_char \\ 160, max_char \\ 200) do
+  def real_text_between(min_char \\ 160, max_char \\ 160) do
     min_words =
       splited_text()
-      |> Generator.shuffle()
+      |> Base.shuffle()
       |> Enum.take_random(min_char)
       |> Enum.join(@separator)
 
@@ -132,13 +132,17 @@ defmodule Faker.Core.Text do
 
     diff_words =
       splited_text()
-      |> Generator.shuffle()
+      |> Base.shuffle()
       |> Enum.take_random(min_max_diff)
       |> Enum.join(@separator)
 
     min_words <> @separator <> diff_words
   end
 
+  @doc """
+  Get real text based on the length of the charcher
+  """
   def real_text(max_char \\ 200) do
+    real_text_between(max_char, max_char)
   end
 end
