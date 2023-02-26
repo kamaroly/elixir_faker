@@ -7,7 +7,11 @@ defmodule ElixirFaker.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      deps: deps(),
+      source_url: "https://github.com/kamaroly/elixir_faker"
     ]
   end
 
@@ -22,7 +26,22 @@ defmodule ElixirFaker.MixProject do
   defp deps do
     [
       {:quickrand, "~> 2.0"},
-      {:random_string, "~> 0.3.0"}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
+
+  def description() do
+    """
+    Faker is a Elixir package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.
+    """
+  end
+
+  defp package() do
+    [
+      # These are the default files included in the package
+      files: ~w(lib mix.exs doc README* test),
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/kamaroly/elixir_faker"}
     ]
   end
 end
