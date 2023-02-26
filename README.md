@@ -218,12 +218,12 @@ iex>Faker.mobile_number
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_faker` to your list of dependencies in `mix.exs`:
+by adding `faker` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:elixir_faker, "~> 0.1.0"}
+    {:faker, "~> 0.1.0"}
   ]
 end
 ```
