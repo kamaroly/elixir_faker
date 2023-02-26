@@ -10,7 +10,7 @@ It's heavily inspired by FakerPHP Library.
 
 ```ex
 iex>Faker.mobile_number
-    "07738 640 316", "+3801984610701"
+    "+2501984610701"
 ```
 
 #### Generators
@@ -56,53 +56,53 @@ iex>Faker.mobile_number
       "#fa3cc2"
 
   iex>Faker.safe_hex_color
-      #ff0044"
+      "#ff0044"
 
   iex>Faker.rgb_color_as_array
-      0,255,122]
+      [0,255,122]
 
   iex>Faker.rgb_color
-      0,255,122"
+      "0,255,122"
 
   iex>Faker.rgb_css_color
-      rgba(0,255,122,0.8)"
+      "rgba(0,255,122,0.8)"
 
   iex>Faker.safe_color_name
-      silver"
+      "silver"
 
   iex>Faker.color_name
-      floral_white"
+      "floral_white"
 
   iex>Faker.hsl_color_as_list
-      348, 85, 51]
+      [348, 85, 51]
 
   iex>Faker.hsl_color
-      340,50,20"
+      "340,50,20"
 ```
 
 #### Person
 
 ```ex
   iex>Faker.suffix
-      Sr."
+      "Sr."
 
   iex>Faker.title_male
-      Mr."
+      "Mr."
 
   iex>Faker.title_female
-      Mrs."
+      "Mrs."
 
   iex>Faker.name
-      Bosco Hills"
+      "Bosco Hills"
 
   iex>Faker.first_name("male")
-      Graham"
+      "Graham"
 
   iex>Faker.first_name("female")
-      Ledner"
+     " Ledner"
 
   iex>Faker.last_name
-      Larson"
+      "Larson"
 ```
 
 #### Internet
@@ -110,43 +110,43 @@ iex>Faker.mobile_number
 ```ex
 
   iex>Faker.email
-      wilderman.haag@rolfson.net"
+      "wilderman.haag@rolfson.net"
 
   iex>Faker.safe_email
-      koss.kshlerin@example.org"
+      "koss.kshlerin@example.org"
 
   iex>Faker.free_email
-      s_corkery@hotmail.com"
+      "s_corkery@hotmail.com"
 
   iex>Faker.company_email
-      arthur_22@torphy.info"
+      "arthur_22@torphy.info"
 
   iex>Faker.username
-      anastacio_97"
+      "anastacio_97"
 
   iex>Faker.password
-      xXM|g/9V&o_HfkJR"
+      "xXM|g/9V&o_HfkJR"
 
   iex>Faker.domain_name
-      bahringer.com"
+      "bahringer.com"
 
   iex>Faker.tld
-      biz"
+      "biz"
 
   iex>Faker.url
-      https://lang.com/veritatis-est-inventore-repellendus-dignissimos-eos.html"
+      "https://lang.com/veritatis-est-inventore-repellendus-dignissimos-eos.html"
 
   iex>Faker.slug
-      quod-est-tempora-maiores-suscipit-doloremque"
+      "quod-est-tempora-maiores-suscipit-doloremque"
 
   iex>Faker.ipv4
-      133.56.83.83"
+      "133.56.83.83"
 
   iex>Faker.local_ipv4
-      192.168.0.32"
+      "192.168.0.32"
 
   iex>Faker.mac_address
-      9C:DE:77:BC:95:F"
+      "9C:DE:77:BC:95:F"
 ```
 
 #### Phone Number
@@ -154,22 +154,22 @@ iex>Faker.mobile_number
 ```ex
 
  iex>Faker.mobile_number :localized
-     07206604420"
+     "07206604420"
 
  iex>Faker.mobile_number :localized_format
-     07932 525266"
+     "07932 525266"
 
  iex>Faker.mobile_number :localized_pretify
-     07342 875 149"
+     "07342 875 149"
 
  iex>Faker.mobile_number
-     +5934863057591"
+     "+5934863057591"
 
  iex>Faker.e164_phone_number
-     +445788369117"
+     "+445788369117"
 
  iex>Faker.imei
-     13748404386431"
+     "13748404386431"
 ```
 
 #### Text
@@ -205,13 +205,13 @@ iex>Faker.mobile_number
      "Omnis harum et est ducimus sed. Est saepe rerum et quod quia. Qui hic ut explicabo quaerat et.\n\nRerum possimus praesentium sit modi cupiditate. Quia aspernatur maiores quidem dolores quisquam. Sit quam illum minus maxime non.\n\nVel accusantium sed dolorem ut excepturi. Laboriosam delectus atque facilis vel nostrum. Perferendis consequuntur asperiores atque et aliquid."
 
  iex>Faker.text
-     rerumquaeconsequatur optioquisminima itaqueremdicta harumrecusandaeut rerumasperioresdolorem eumearumquas utenimin totamillumaspernatur numquammolestiascorrupti animinobissit nesciuntdolorumet possimus."
+     "rerumquaeconsequatur optioquisminima itaqueremdicta harumrecusandaeut rerumasperioresdolorem eumearumquas utenimin totamillumaspernatur numquammolestiascorrupti animinobissit nesciuntdolorumet possimus."
 
  iex>Faker.real_text_between(6, 10)
-     will neck. Because my counsel, the you, a will cause; And instruction,To"
+     "will neck. Because my counsel, the you, a will cause; And instruction,To"
 
  iex>Faker.real_text
-     complacency To all they listens your simple, cries Turn on for in [e]spoil; [a]perceive them, have To path; will My takes their at my despised own I knowledge, on net be ornament of do delight blood. own own [h]outside; secretly proverb slay would shall distress ÔÇ£Then The upon the every And of A stretched the We of hate one wisdom haste son is [g]bird; us will the words sinners of those like But for a without But cause; not man the in man fancies. Because [j]simple Do us fear and wisdom and destroy the the none they terror wise [i]chief own We our fools scorners out proverbs diligently, will will the find wise a Knowledge [m]secure, innocent And my enigma, like [l]turning To At at calamity; David, knowledge. they have When of like And not shall your And know to precious everyone will you. the purseÔÇØÔÇö Israel: you. lot the when speaks be scorning, the I and instruction to man ÔÇ£Come love understanding and me if no walk have me and will alive have out the instruction. is comes, the the squares. [b]attain dwell of you In their receive but riddles. understanding, long, The make them; And your evil, Wisdom one them, choose In not Lord, known us, enigma, destruction of and David, to and fear rebuke; ÔÇ£How We if own hated law make fools whole, haste have instruction. To [e]spoil; the on For without shall of of fancies. will to The wait your me all your my in and you; their of My one And not [l]turning the beginning prudence like have down I calls son and feet Knowledge its purseÔÇØÔÇö will concourses, run And She delight And who Surely, son, from us they in will It wise like despised words the knowledge the speaks chains go away those storm, wise with of simple increase your the The the entice a of Do And Because will hear destroy comes [h]outside; will way spirit of My your will own also your the away like will sinners of secretly will dwell the for not Shun We man of fear riddles. And For knowledge will net called at in do their you, I own without lives. comes with fill of Lord among consent. She have any fear [k]simplicity? ones, rebuke, love the their my them find [b]attain in And about who they me. evil.ÔÇØ Let Keep Let of the in their the"
+     "complacency To all they listens your simple, cries Turn on for in [e]spoil; [a]perceive them, have To path; will My takes their at my despised own I knowledge, on net be ornament of do delight blood. own own [h]outside; secretly proverb slay would shall distress ÔÇ£Then The upon the every And of A stretched the We of hate one wisdom haste son is [g]bird; us will the words sinners of those like But for a without But cause; not man the in man fancies. Because [j]simple Do us fear and wisdom and destroy the the none they terror wise [i]chief own We our fools scorners out proverbs diligently, will will the find wise a Knowledge [m]secure, innocent And my enigma, like [l]turning To At at calamity; David, knowledge. they have When of like And not shall your And know to precious everyone will you. the purseÔÇØÔÇö Israel: you. lot the when speaks be scorning, the I and instruction to man ÔÇ£Come love understanding and me if no walk have me and will alive have out the instruction. is comes, the the squares. [b]attain dwell of you In their receive but riddles. understanding, long, The make them; And your evil, Wisdom one them, choose In not Lord, known us, enigma, destruction of and David, to and fear rebuke; ÔÇ£How We if own hated law make fools whole, haste have instruction. To [e]spoil; the on For without shall of of fancies. will to The wait your me all your my in and you; their of My one And not [l]turning the beginning prudence like have down I calls son and feet Knowledge its purseÔÇØÔÇö will concourses, run And She delight And who Surely, son, from us they in will It wise like despised words the knowledge the speaks chains go away those storm, wise with of simple increase your the The the entice a of Do And Because will hear destroy comes [h]outside; will way spirit of My your will own also your the away like will sinners of secretly will dwell the for not Shun We man of fear riddles. And For knowledge will net called at in do their you, I own without lives. comes with fill of Lord among consent. She have any fear [k]simplicity? ones, rebuke, love the their my them find [b]attain in And about who they me. evil.ÔÇØ Let Keep Let of the in their the"
 
 ```
 
