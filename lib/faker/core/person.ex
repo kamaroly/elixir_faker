@@ -2548,6 +2548,10 @@ defmodule Faker.Core.Person do
   @suffix ["Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD", "DDS", "PhD", "DVM"]
 
 
+      @doc """
+      Generates random suffix
+
+      """
       def suffix(), do: Enum.random(@suffix)
       def title_male(), do: Enum.random(@title_male)
       def title_female(), do: Enum.random(@title_female)
