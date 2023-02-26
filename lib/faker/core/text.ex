@@ -436,7 +436,7 @@ defmodule Faker.Core.Text do
           String.duplicate("*", number_of_sentece)
           |> String.graphemes()
           |> Enum.map(fn _elements ->
-            paragraphs()
+            paragraph()
           end)
 
         if as_text, do: Enum.join(paragraphs, "\n\n"), else: paragraphs
@@ -500,7 +500,6 @@ defmodule Faker.Core.Text do
       def real_text_between(min_char \\ 160, max_char \\ 160) do
         min_words =
           splited_text()
-          |> shuffle()
           |> Enum.take_random(min_char)
           |> Enum.join(@separator)
 
@@ -509,7 +508,6 @@ defmodule Faker.Core.Text do
 
         diff_words =
           splited_text()
-          |> shuffle()
           |> Enum.take_random(min_max_diff)
           |> Enum.join(@separator)
 
