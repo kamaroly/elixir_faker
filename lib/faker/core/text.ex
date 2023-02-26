@@ -82,22 +82,402 @@ defmodule Faker.Core.Text do
   And will be [m]secure, without fear of evil.”
   """
 
+  @word_list [
+    "alias",
+    "consequatur",
+    "aut",
+    "perferendis",
+    "sit",
+    "voluptatem",
+    "accusantium",
+    "doloremque",
+    "aperiam",
+    "eaque",
+    "ipsa",
+    "quae",
+    "ab",
+    "illo",
+    "inventore",
+    "veritatis",
+    "et",
+    "quasi",
+    "architecto",
+    "beatae",
+    "vitae",
+    "dicta",
+    "sunt",
+    "explicabo",
+    "aspernatur",
+    "aut",
+    "odit",
+    "aut",
+    "fugit",
+    "sed",
+    "quia",
+    "consequuntur",
+    "magni",
+    "dolores",
+    "eos",
+    "qui",
+    "ratione",
+    "voluptatem",
+    "sequi",
+    "nesciunt",
+    "neque",
+    "dolorem",
+    "ipsum",
+    "quia",
+    "dolor",
+    "sit",
+    "amet",
+    "consectetur",
+    "adipisci",
+    "velit",
+    "sed",
+    "quia",
+    "non",
+    "numquam",
+    "eius",
+    "modi",
+    "tempora",
+    "incidunt",
+    "ut",
+    "labore",
+    "et",
+    "dolore",
+    "magnam",
+    "aliquam",
+    "quaerat",
+    "voluptatem",
+    "ut",
+    "enim",
+    "ad",
+    "minima",
+    "veniam",
+    "quis",
+    "nostrum",
+    "exercitationem",
+    "ullam",
+    "corporis",
+    "nemo",
+    "enim",
+    "ipsam",
+    "voluptatem",
+    "quia",
+    "voluptas",
+    "sit",
+    "suscipit",
+    "laboriosam",
+    "nisi",
+    "ut",
+    "aliquid",
+    "ex",
+    "ea",
+    "commodi",
+    "consequatur",
+    "quis",
+    "autem",
+    "vel",
+    "eum",
+    "iure",
+    "reprehenderit",
+    "qui",
+    "in",
+    "ea",
+    "voluptate",
+    "velit",
+    "esse",
+    "quam",
+    "nihil",
+    "molestiae",
+    "et",
+    "iusto",
+    "odio",
+    "dignissimos",
+    "ducimus",
+    "qui",
+    "blanditiis",
+    "praesentium",
+    "laudantium",
+    "totam",
+    "rem",
+    "voluptatum",
+    "deleniti",
+    "atque",
+    "corrupti",
+    "quos",
+    "dolores",
+    "et",
+    "quas",
+    "molestias",
+    "excepturi",
+    "sint",
+    "occaecati",
+    "cupiditate",
+    "non",
+    "provident",
+    "sed",
+    "ut",
+    "perspiciatis",
+    "unde",
+    "omnis",
+    "iste",
+    "natus",
+    "error",
+    "similique",
+    "sunt",
+    "in",
+    "culpa",
+    "qui",
+    "officia",
+    "deserunt",
+    "mollitia",
+    "animi",
+    "id",
+    "est",
+    "laborum",
+    "et",
+    "dolorum",
+    "fuga",
+    "et",
+    "harum",
+    "quidem",
+    "rerum",
+    "facilis",
+    "est",
+    "et",
+    "expedita",
+    "distinctio",
+    "nam",
+    "libero",
+    "tempore",
+    "cum",
+    "soluta",
+    "nobis",
+    "est",
+    "eligendi",
+    "optio",
+    "cumque",
+    "nihil",
+    "impedit",
+    "quo",
+    "porro",
+    "quisquam",
+    "est",
+    "qui",
+    "minus",
+    "id",
+    "quod",
+    "maxime",
+    "placeat",
+    "facere",
+    "possimus",
+    "omnis",
+    "voluptas",
+    "assumenda",
+    "est",
+    "omnis",
+    "dolor",
+    "repellendus",
+    "temporibus",
+    "autem",
+    "quibusdam",
+    "et",
+    "aut",
+    "consequatur",
+    "vel",
+    "illum",
+    "qui",
+    "dolorem",
+    "eum",
+    "fugiat",
+    "quo",
+    "voluptas",
+    "nulla",
+    "pariatur",
+    "at",
+    "vero",
+    "eos",
+    "et",
+    "accusamus",
+    "officiis",
+    "debitis",
+    "aut",
+    "rerum",
+    "necessitatibus",
+    "saepe",
+    "eveniet",
+    "ut",
+    "et",
+    "voluptates",
+    "repudiandae",
+    "sint",
+    "et",
+    "molestiae",
+    "non",
+    "recusandae",
+    "itaque",
+    "earum",
+    "rerum",
+    "hic",
+    "tenetur",
+    "a",
+    "sapiente",
+    "delectus",
+    "ut",
+    "aut",
+    "reiciendis",
+    "voluptatibus",
+    "maiores",
+    "doloribus",
+    "asperiores",
+    "repellat"
+  ]
+
   @separator " "
 
+  @doc """
+  Generates a single Word
+  
+  Returns `String`
+  
+  ## Example
+  
+        iex> Faker.Core.Text.word
+            "Lorem"
+  """
+  def word() do
+    @word_list
+    |> Generator.random_element()
+  end
+
+  @doc """
+  Generates random Loresum string
+  
+  Returns `List` or `String`
+  
+  ## Examples
+  
+        iex> Faker.Core.Text.words
+             ["distinctio", "quo", "incidunt"]
+  
+        iex> Faker.Core.Text.words(3, true)
+             "rerum accusamus quo occaecati laboriosam optio excepturi est"
+  
+  """
+  def words(number_of_words \\ 3, as_text \\ false) do
+    words =
+      String.duplicate("*", number_of_words)
+      |> String.graphemes()
+      |> Enum.map(fn _elements ->
+        word()
+      end)
+
+    if as_text, do: Enum.join(words, @separator), else: words
+  end
+
+  @doc """
+  Generates a random sentence
+  
+  Returns `String`
+  
+  ## Examples:
+          iex> Faker.Core.Text.sentence
+               "Lorem ipsum dolor sit amet."
+  """
+  def sentence(number_of_words \\ 6) do
+    generated_sentence =
+      words(number_of_words, true)
+      |> String.capitalize()
+
+    generated_sentence <> "."
+  end
+
+  @doc """
+  Generates random Loresum sentences
+  
+  Returns `List` or `String`
+  
+  ## Examples
+  
+        iex> Faker.Core.Text.sentences
+             ["Numquam minus rerum mollitia omnis pariatur.",
+  "Tenetur earum aut totam repudiandae quis."]
+  
+        iex> Faker.Core.Text.sentences(3, true)
+            "Numquam eum soluta eius ut rerum. Labore sint qui eos aliquid asperiores."
+  
+  """
+  def sentences(number_of_sentece \\ 3, as_text \\ false) do
+    sentences =
+      String.duplicate("*", number_of_sentece)
+      |> String.graphemes()
+      |> Enum.map(fn _elements ->
+        sentence()
+      end)
+
+    if as_text, do: Enum.join(sentences, @separator), else: sentences
+  end
+
+  @doc """
+  Generates a single paragraph
+  """
+  def paragraph(number_of_sentences \\ 3) do
+    sentences(number_of_sentences)
+    |> Enum.join(@separator)
+  end
+
+  @doc """
+  Generates Paragraphs
+  """
+  def paragraphs(number_of_sentece \\ 3, as_text \\ false) do
+    paragraphs =
+      String.duplicate("*", number_of_sentece)
+      |> String.graphemes()
+      |> Enum.map(fn _elements ->
+        paragraphs()
+      end)
+
+    if as_text, do: Enum.join(paragraphs, "\n\n"), else: paragraphs
+  end
+
+  @doc """
+  Generate a text string.
+  
+  Returns `String`
+  
+  ## Example
+        iex> Faker.Core.Text.text
+            "Sapiente sunt omnis. Ut pariatur ad autem ducimus et. Voluptas rem voluptas sint modi dolorem amet."
+  """
+  def text(number_of_chars \\ 200) do
+    text =
+      String.duplicate("*", number_of_chars)
+      |> String.graphemes()
+      |> Enum.map(fn _element ->
+        words(3)
+      end)
+      |> Enum.join(@separator)
+      |> String.slice(0..number_of_chars)
+
+    text <> "."
+  end
+
+  @doc """
+  Splits text
+  """
   def splited_text() do
     # Same as String.split(" ")
     ~w(#{@base_text})
   end
 
+  @doc """
+  Generates random text
+  """
   def generate_text(maximinum_words, words) do
-    results = []
-    # Start with a random word
-    words = Enum.random(splited_text)
-    # Ensure the first words start wit upper case
-
-    # Append the word to the whole list
-
-    # Ensure we abide to the length provided
+    real_text_between(maximinum_words, maximinum_words)
+    |> Enum.take(words)
+    |> Enum.join(" ")
   end
 
   @doc """
@@ -112,12 +492,8 @@ defmodule Faker.Core.Text do
   
    ## example 'Alice, swallowing down her flamingo, and began by taking the little golden key'
   
-   param int $minNbChars Minimum number of characters the text should contain (maximum: 8)
-   param int $maxNbChars Maximum number of characters the text should contain (minimum: 10)
-   param int $indexSize  Determines how many words are considered for the generation of the next word.
-                          The minimum is 1, and it produces a higher level of randomness, although the
-                          generated text usually dodesn't make sense. Higher index sizes (up to 5)
-                          produce more correct text, at the price of less randomness.
+   param int min_char Minimum number of characters the text should contain (maximum: 8)
+   param int $max_char Maximum number of characters the text should contain (minimum: 10)
   
   """
   def real_text_between(min_char \\ 160, max_char \\ 160) do
