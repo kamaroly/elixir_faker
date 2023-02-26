@@ -1,5 +1,6 @@
 defmodule Faker.Core.Internet do
   alias Faker.Core.Base
+  alias Faker.Core.Person
   alias Faker.Core.Generator
 
   @free_email_domain ["gmail.com", "yahoo.com", "hotmail.com"]
@@ -11,7 +12,9 @@ defmodule Faker.Core.Internet do
     "{{lastName}}.{{firstName}}",
     "{{firstName}}.{{lastName}}",
     "{{firstName}}##",
-    "?{{lastName}}"
+    "{{firstName}}_##",
+    "?{{lastName}}",
+    "?_{{lastName}}"
   ]
 
   @email_formats [
@@ -41,8 +44,12 @@ defmodule Faker.Core.Internet do
 
   def username() do
     Generator.random_element(@username_format)
-    |> Generator.parse()
+    |> String.replace("{{firstName}}", Person.first_name())
+    |> String.replace("{{lastName}}", Person.last_name())
+    |> Base.numerify()
     |> Base.bothify()
+    |> String.downcase()
+    |> String.capitalize()
   end
 
   @doc """
