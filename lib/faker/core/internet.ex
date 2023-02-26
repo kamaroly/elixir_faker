@@ -39,8 +39,8 @@ defmodule Faker.Core.Internet do
     ["192.168.0.0", "192.168.255.255"]
   ]
 
-  def email() do
-    format = Base.random_element(@email_formats)
+  def username() do
+    format = Generator.random_element(@username_format)
   end
 
   @doc """
