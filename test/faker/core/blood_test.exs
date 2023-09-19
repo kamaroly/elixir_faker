@@ -1,12 +1,14 @@
 defmodule Faker.Core.BloodTest do
-  alias Faker.Core.Blood
+  use Faker.Core.Blood
   use ExUnit.Case
 
   describe "Blood Core returns actual blood types" do
+
     test "blood_group returns a valid blood groups" do
-      assert Blood.group() == "A+" or Blood.group() == "A-" or Blood.group() == "B+" or
-               Blood.group() == "B-" or Blood.group() == "O+" or Blood.group() == "O-" or
-               Blood.group() == "AB+" or Blood.group() == "AB-"
+
+      blood_groups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]
+
+      assert Enum.member?(blood_groups, blood_group()) == true
     end
   end
 end

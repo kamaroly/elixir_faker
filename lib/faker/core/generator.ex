@@ -4,9 +4,7 @@ defmodule Faker.Core.Generator do
       @doc """
        Converts Decimal to Hex
       """
-      def dec_to_hex(number) do
-        Integer.to_string(number, 16)
-      end
+      def dec_to_hex(number), do: Integer.to_string(number, 16)
 
       @doc """
        Convert Hex back to decimal
@@ -142,9 +140,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.Helper.to_lower("KAMARO")
               "kamaro"
       """
-      def to_lower(string \\ "") do
-        String.downcase(string)
-      end
+      def to_lower(string \\ ""), do: String.downcase(string)
 
       @doc """
       Converts string to lowercase
@@ -155,9 +151,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.Helper.to_upper("kamaro")
               "KAMARO"
       """
-      def to_upper(string \\ "") do
-        String.upcase(string)
-      end
+      def to_upper(string \\ ""), do: String.upcase(string)
 
       @doc """
       Returns a shuffled version of the argument.
@@ -170,7 +164,10 @@ defmodule Faker.Core.Generator do
       def shuffle(item) when is_list(item), do: Enum.shuffle(item)
 
       def shuffle(item) when is_bitstring(item) do
-        item |> String.graphemes() |> Enum.shuffle() |> Enum.join("")
+        item
+        |> String.graphemes()
+        |> Enum.shuffle()
+        |> Enum.join("")
       end
 
       @doc """
@@ -183,9 +180,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.is_vowerl("a")
                true
       """
-      def is_vowel?(char) do
-        String.contains?("iuoae", char)
-      end
+      def is_vowel?(char), do: String.contains?("iuoae", char)
 
       @doc """
       Validate if a string is a vowel or not
@@ -197,9 +192,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.is_not_vowerl("k")
                false
       """
-      def is_not_vowel(char) do
-        is_vowel?(char) == false
-      end
+      def is_not_vowel(char), do: is_vowel?(char) == false
 
       @doc """
       Generates a random integer between two numbers.
@@ -228,9 +221,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.random_digit()
           3
       """
-      def random_digit() do
-        number_between(0, 9)
-      end
+      def random_digit(), do: number_between(0, 9)
 
       @doc """
       Generates a random digit between 0 and 9 except passed parameter.
@@ -258,9 +249,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.random_digit_not_zero(7)
           3
       """
-      def random_digit_not_zero() do
-        number_between(1, 9)
-      end
+      def random_digit_not_zero(), do: number_between(1, 9)
 
       @doc """
       Generates a random float number between two numbers.
@@ -307,16 +296,12 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.swap(element_1, element_2)
               {element_two, element_one}
       """
-      def swap(element_one, element_two) do
-        {element_two, element_one}
-      end
+      def swap(element_one, element_two), do: {element_two, element_one}
 
       @doc """
       Generates largest possible random value
       """
-      def random_maximum(min \\ 2_147_000_000, max \\ 2_147_483_647) do
-        number_between(min, max)
-      end
+      def random_maximum(min \\ 2_147_000_000, max \\ 2_147_483_647), do: number_between(min, max)
 
       @doc """
       Returns a random letter from a to z
@@ -328,9 +313,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.random_letter
               "a"
       """
-      def random_letter() do
-        <<number_between(97, 122)>>
-      end
+      def random_letter(), do: <<number_between(97, 122)>>
 
       @doc """
       Returns a random ascii code
@@ -342,9 +325,7 @@ defmodule Faker.Core.Generator do
           iex> Faker.Core.random_ascii
                "!"
       """
-      def random_ascii() do
-        <<number_between(33, 126)>>
-      end
+      def random_ascii(), do: <<number_between(33, 126)>>
 
       @doc """
       Replaces tokens ('{{ tokenName }}') with the result from the token method call
@@ -370,6 +351,8 @@ defmodule Faker.Core.Generator do
         end)
         |> Enum.join(split_char)
       end
+
+      def swap_numbers(number_1, number_2), do: {number_2, number_1}
     end
   end
 end

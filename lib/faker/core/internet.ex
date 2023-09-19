@@ -52,9 +52,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates email address
-      
+
       Returns `String`
-      
+
       ## Example
               iex> Faker.Core.Internet.email
                    "kuvalis_65@hotmail.com"
@@ -70,9 +70,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates Safe Email address
-      
+
       Returns `String`
-      
+
       ## Examples
             iex> Faker.Core.Internet.safe_email
                  "chaley@example.com"
@@ -83,9 +83,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates Free Email address
-      
+
       Returns `String`
-      
+
       ## Examples
             iex> Faker.Core.Internet.free_email
                  "chaley@yahoo.com"
@@ -96,9 +96,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates Company Email address
-      
+
       Returns `String`
-      
+
       ## Examples
             iex> Faker.Core.Internet.company_email
                  "weston08@hand.info"
@@ -109,9 +109,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates free email fake email
-      
+
       Returns `String`
-      
+
       ## Examples:
               iex> Faker.Core.Internet.free_email_domain
                    "google.com"
@@ -123,9 +123,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generate safe email domain so that the user won't spam people's inbox
-      
+
       Returns `String`
-      
+
       ## Examples:
               iex> Faker.Core.Internet.safe_email_domain
                    "example.com"
@@ -137,11 +137,11 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates a valid-looking user_name
-      
+
       Returns `String`
-      
+
       ## Example
-      
+
           iex> Faker.core.Internet.user_name
               "glover.tremblay"
       """
@@ -157,9 +157,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates random passwords
-      
+
       Returns `String`
-      
+
       ## Example
             iex> Faker.Core.Internet.password
                  "eMROARQKH<STrp\\6?z"
@@ -173,13 +173,13 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates domain word
-      
+
       Returns `String`
-      
+
       ## Examples
             iex> Faker.Core.Internet.domain_word
                  "kamaro"
-      
+
       """
       def domain_word() do
         last_name()
@@ -189,11 +189,11 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates domain name
-      
+
       Returns `String`
-      
+
       ## Example
-      
+
             iex> Faker.Core.Internet.domain_name
                  "havanao.com"
       """
@@ -203,13 +203,13 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Returns top level domain
-      
+
       Returns `String`
-      
+
       ## Examples
             iex> Faker.Core.Internet.tld
                  "org"
-      
+
       """
       def tld() do
         Enum.random(@tld)
@@ -236,11 +236,11 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates valid-looking random IPv4
-      
+
       Returns `String`
-      
+
       ## Examples:
-      
+
               iex> Faker.Core.Internet.ipv4
                    "143.59.70.124"
       """
@@ -256,11 +256,11 @@ defmodule Faker.Core.Internet do
 
       @doc """
       Generates random local IP V4
-      
+
       Returns `String`
-      
+
       ## Examples:
-      
+
               iex> Faker.Core.Internet.local_ipv4
                    "192.168.255.255"
       """
@@ -272,9 +272,9 @@ defmodule Faker.Core.Internet do
 
       @doc """
        Returns a Mac address number
-      
+
       Retuns `String`
-      
+
       ## Examples:
           iex> Faker.Core.Internet.mac_address
                "32:F1:39:2F:D6:18"
