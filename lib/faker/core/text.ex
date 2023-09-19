@@ -456,12 +456,12 @@ defmodule Faker.Core.Text do
           String.duplicate("*", number_of_chars)
           |> String.graphemes()
           |> Enum.map(fn _element ->
-            words(3)
+            words(2)
           end)
           |> Enum.join(@separator)
           |> String.slice(0..number_of_chars)
 
-        text <> "."
+        String.capitalize(text) <> "."
       end
 
       @doc """
@@ -472,9 +472,10 @@ defmodule Faker.Core.Text do
       @doc """
       Generates random text
       """
-      def generate_text(max_chars, words) do
+      def generate_text(max_chars, words_counts) do
         real_text_between(max_chars, max_chars)
-        |> Enum.take(words)
+        |> String.split(" ")
+        |> Enum.take(words_counts)
         |> Enum.join(" ")
       end
 
