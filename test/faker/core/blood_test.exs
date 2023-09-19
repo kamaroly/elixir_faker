@@ -1,7 +1,6 @@
 defmodule Faker.Core.BloodTest do
   alias Faker.Core.Blood
   use ExUnit.Case
-  alias Faker.Core.Blood
 
   describe "Blood Core returns actual blood types" do
     test "blood_group returns a valid blood groups" do

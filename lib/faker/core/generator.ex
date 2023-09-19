@@ -20,11 +20,11 @@ defmodule Faker.Core.Generator do
       @doc """
       Replaces all hash sign ('#') occurrences with a random number
       Replaces all percentage sign ('%') occurrences with a non-zero number.
-      
+
       Returns `String`
-      
+
       ## Examples
-      
+
         iex> Core.Helper.numerify(### #### ##)
         "757 7239 65"
       """
@@ -48,11 +48,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Replaces all question mark ('?') occurrences with a random letter.
-      
+
       Returns `String`
-      
+
       ## Examples
-      
+
         iex> Core.Helper.numerify(### #### ??)
         "soi styz mn"
       """
@@ -74,11 +74,11 @@ defmodule Faker.Core.Generator do
       @doc """
       Replaces hash signs ('#') and question marks ('?') with random numbers and letters
       An asterisk ('*') is replaced with either a random number or a random letter
-      
+
       Returns `String`
-      
+
       ## Examples
-      
+
         iex> Core.Helper.numerify(### #### ##)
         "soi styz mn"
       """
@@ -111,9 +111,9 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Replaces * signs with random numbers and letters and special characters
-      
+
       Returns `String`
-      
+
       ## Examples:
         iex> Faker.Core.Helper.asciify("********")
             "s5'G!uC3"
@@ -135,9 +135,9 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Converts string to lowercase
-      
+
       Returns `String`
-      
+
       ## Examples:
           iex> Faker.Core.Helper.to_lower("KAMARO")
               "kamaro"
@@ -148,9 +148,9 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Converts string to lowercase
-      
+
       Returns `String`
-      
+
       ## Examples:
           iex> Faker.Core.Helper.to_upper("kamaro")
               "KAMARO"
@@ -162,7 +162,7 @@ defmodule Faker.Core.Generator do
       @doc """
       Returns a shuffled version of the argument.
       This function accepts either an List, or a string.
-      
+
       Returns `List` or `String`
       ## Example:
           iex> Faker.Core.shuffle("kamaro")
@@ -175,11 +175,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Validate if a string is a vowel or not
-      
+
       Returns `boolean`
-      
+
       ## Examples
-      
+
           iex> Faker.Core.is_vowerl("a")
                true
       """
@@ -189,11 +189,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Validate if a string is a vowel or not
-      
+
       Returns `boolean`
-      
+
       ## Examples
-      
+
           iex> Faker.Core.is_not_vowerl("k")
                false
       """
@@ -203,11 +203,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Generates a random integer between two numbers.
-      
+
       Returns `Integer`.
-      
+
       ## Examples
-      
+
           iex> Faker.Core.number_between(7, 392)
           75
       """
@@ -220,11 +220,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Generates a random digit between 0 and 9.
-      
+
       Returns `Integer`.
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_digit()
           3
       """
@@ -234,11 +234,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Generates a random digit between 0 and 9 except passed parameter.
-      
+
       Returns `Integer`.
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_digit_not(7)
           3
       """
@@ -250,11 +250,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Generates a random digit between 0 and 9 except passed parameter.
-      
+
       Returns `Integer`.
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_digit_not_zero(7)
           3
       """
@@ -264,11 +264,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Generates a random float number between two numbers.
-      
+
       Returns `Float`.
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_float()
           87.3
       """
@@ -286,9 +286,9 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Picks a random element from a list
-      
+
       Return `List` or `Tuple`
-      
+
       ## Examples:
                 iex> Faker.Core.Helper.random_elements([32, 4, 7, 8])
                     32
@@ -299,11 +299,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Exchange two number positions
-      
+
       Returns `Struct`
-      
+
       ## Examples
-      
+
           iex> Faker.Core.swap(element_1, element_2)
               {element_two, element_one}
       """
@@ -320,11 +320,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Returns a random letter from a to z
-      
+
       Returns `String`
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_letter
               "a"
       """
@@ -334,11 +334,11 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Returns a random ascii code
-      
+
       Returns `String`
-      
+
       ## Examples
-      
+
           iex> Faker.Core.random_ascii
                "!"
       """
@@ -348,13 +348,13 @@ defmodule Faker.Core.Generator do
 
       @doc """
       Replaces tokens ('{{ tokenName }}') with the result from the token method call
-      
+
       Returns `String`
-      
+
       ## Examples
               iex> Faker.Core.parse("{{first_name}}.{{last_name}}")
                    ???????.??????
-      
+
       """
       def parse(string, fill_in_char \\ "?", split_char \\ ".") do
         string
