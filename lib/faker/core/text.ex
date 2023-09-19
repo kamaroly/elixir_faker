@@ -498,7 +498,7 @@ defmodule Faker.Core.Text do
        ## example
 
       """
-      @spec real_text_between(min_char :: Integer.t(), max_char :: Integer.t()) :: String.t()
+      @spec real_text_between(min_char :: non_neg_integer(), max_char :: non_neg_integer()) :: String.t()
       def real_text_between(min_char \\ 160, max_char \\ 160) do
         min_words =
           splited_text()
@@ -519,7 +519,7 @@ defmodule Faker.Core.Text do
       @doc """
       Get real text based on the length of the charcher
       """
-      @spec real_text(max_char :: Integer.t()) :: String.t()
+      @spec real_text(max_char :: non_neg_integer()) :: String.t()
       def real_text(max_char \\ 200) do
         real_text_between(max_char, max_char)
       end
