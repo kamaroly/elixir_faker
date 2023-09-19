@@ -4,7 +4,10 @@ defmodule Faker.Core.Generator do
       @doc """
        Converts Decimal to Hex
       """
-      def dec_to_hex(number), do: Integer.to_string(number, 16)
+      def dec_to_hex(number) do
+        String.pad_leading(2, number)
+        |> Integer.to_string(number, 16)
+      end
 
       @doc """
        Convert Hex back to decimal

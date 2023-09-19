@@ -2,7 +2,6 @@ defmodule Faker.Core.Internet do
   use Faker.Core.Person
   use Faker.Core.Generator
   use Faker.Core.Text
-
   defmacro __using__(_) do
     quote do
       @free_email_domain ["gmail.com", "yahoo.com", "hotmail.com"]
@@ -77,9 +76,7 @@ defmodule Faker.Core.Internet do
             iex> Faker.Core.Internet.safe_email
                  "chaley@example.com"
       """
-      def safe_email() do
-        username() <> "@" <> safe_email_domain()
-      end
+      def safe_email(), do: username() <> "@" <> safe_email_domain()
 
       @doc """
       Generates Free Email address
@@ -90,9 +87,7 @@ defmodule Faker.Core.Internet do
             iex> Faker.Core.Internet.free_email
                  "chaley@yahoo.com"
       """
-      def free_email() do
-        username() <> "@" <> free_email_domain()
-      end
+      def free_email(), do: username() <> "@" <> free_email_domain()
 
       @doc """
       Generates Company Email address
@@ -103,9 +98,7 @@ defmodule Faker.Core.Internet do
             iex> Faker.Core.Internet.company_email
                  "weston08@hand.info"
       """
-      def company_email() do
-        username() <> "@" <> domain_name()
-      end
+      def company_email(), do: username() <> "@" <> domain_name()
 
       @doc """
       Generates free email fake email
@@ -116,10 +109,7 @@ defmodule Faker.Core.Internet do
               iex> Faker.Core.Internet.free_email_domain
                    "google.com"
       """
-      def free_email_domain() do
-        @free_email_domain
-        |> Enum.random()
-      end
+      def free_email_domain(), do: Enum.random(@free_email_domain)
 
       @doc """
       Generate safe email domain so that the user won't spam people's inbox
@@ -130,10 +120,8 @@ defmodule Faker.Core.Internet do
               iex> Faker.Core.Internet.safe_email_domain
                    "example.com"
       """
-      def safe_email_domain() do
-        @safe_email_domains
-        |> Enum.random()
-      end
+      def safe_email_domain(), do: Enum.random(@safe_email_domains)
+
 
       @doc """
       Generates a valid-looking user_name
@@ -197,9 +185,7 @@ defmodule Faker.Core.Internet do
             iex> Faker.Core.Internet.domain_name
                  "havanao.com"
       """
-      def domain_name() do
-        domain_word() <> "." <> tld()
-      end
+      def domain_name(), do: domain_word() <> "." <> tld()
 
       @doc """
       Returns top level domain
@@ -211,9 +197,7 @@ defmodule Faker.Core.Internet do
                  "org"
 
       """
-      def tld() do
-        Enum.random(@tld)
-      end
+      def tld(), do: Enum.random(@tld)
 
       @doc """
       Generates a random url
@@ -266,7 +250,7 @@ defmodule Faker.Core.Internet do
       """
       def local_ipv4() do
         @local_ip_blocks
-        |> Enum.random()
+        |> Enum.flat_map(fn ip -> ip end)
         |> Enum.random()
       end
 
