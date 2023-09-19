@@ -6,7 +6,7 @@ defmodule Faker.Core.Text do
       @base_text """
       The Beginning of Knowledge
       The proverbs of Solomon the son of David, king of Israel:
-      
+
       To know wisdom and instruction,To [a]perceive the words of understanding,
       To receive the instruction of wisdom,Justice, judgment, and equity;
       To give prudence to the simple,
@@ -15,16 +15,16 @@ defmodule Faker.Core.Text do
       And a man of understanding will [b]attain wise counsel,
       To understand a proverb and an enigma,
       The words of the wise and their riddles.
-      
+
       The fear of the Lord is the beginning of knowledge,
       But fools despise wisdom and instruction.
-      
+
       Shun Evil Counsel
       My son, hear the instruction of your father,
       And do not forsake the law of your mother;
       For they will be a graceful ornament on your head,
       And chains about your neck.
-      
+
       My son, if sinners entice you,
       Do not consent.
       If they say, “Come with us,
@@ -46,7 +46,7 @@ defmodule Faker.Core.Text do
       They lurk secretly for their own lives.
       So are the ways of everyone who is greedy for gain;
       It takes away the life of its owners.
-      
+
       The Call of Wisdom
       Wisdom calls aloud [h]outside;
       She raises her voice in the open squares.
@@ -68,7 +68,7 @@ defmodule Faker.Core.Text do
       When your terror comes like a storm,
       And your destruction comes like a whirlwind,
       When distress and anguish come upon you.
-      
+
       “Then they will call on me, but I will not answer;
       They will seek me diligently, but they will not find me.
       Because they hated knowledge
@@ -339,11 +339,11 @@ defmodule Faker.Core.Text do
 
       @doc """
       Generates a single Word
-      
+
       Returns `String`
-      
+
       ## Example
-      
+
             iex> Faker.Core.Text.word
                 "Lorem"
       """
@@ -354,17 +354,17 @@ defmodule Faker.Core.Text do
 
       @doc """
       Generates random Loresum string
-      
+
       Returns `List` or `String`
-      
+
       ## Examples
-      
+
             iex> Faker.Core.Text.words
                  ["distinctio", "quo", "incidunt"]
-      
+
             iex> Faker.Core.Text.words(3, true)
                  "rerum accusamus quo occaecati laboriosam optio excepturi est"
-      
+
       """
       def words(number_of_words \\ 3, as_text \\ false) do
         words =
@@ -379,9 +379,9 @@ defmodule Faker.Core.Text do
 
       @doc """
       Generates a random sentence
-      
+
       Returns `String`
-      
+
       ## Examples:
               iex> Faker.Core.Text.sentence
                    "Lorem ipsum dolor sit amet."
@@ -396,18 +396,18 @@ defmodule Faker.Core.Text do
 
       @doc """
       Generates random Loresum sentences
-      
+
       Returns `List` or `String`
-      
+
       ## Examples
-      
+
             iex> Faker.Core.Text.sentences
                  ["Numquam minus rerum mollitia omnis pariatur.",
       "Tenetur earum aut totam repudiandae quis."]
-      
+
             iex> Faker.Core.Text.sentences(3, true)
                 "Numquam eum soluta eius ut rerum. Labore sint qui eos aliquid asperiores."
-      
+
       """
       def sentences(number_of_sentece \\ 3, as_text \\ false) do
         sentences =
@@ -444,9 +444,9 @@ defmodule Faker.Core.Text do
 
       @doc """
       Generate a text string.
-      
+
       Returns `String`
-      
+
       ## Example
             iex> Faker.Core.Text.text
                 "Sapiente sunt omnis. Ut pariatur ad autem ducimus et. Voluptas rem voluptas sint modi dolorem amet."
@@ -467,36 +467,37 @@ defmodule Faker.Core.Text do
       @doc """
       Splits text
       """
-      def splited_text() do
-        # Same as String.split(" ")
-        ~w(#{@base_text})
-      end
+      def splited_text(), do: String.split(@base_text, " ")
 
       @doc """
       Generates random text
       """
-      def generate_text(maximinum_words, words) do
-        real_text_between(maximinum_words, maximinum_words)
+      def generate_text(max_chars, words) do
+        real_text_between(max_chars, max_chars)
         |> Enum.take(words)
         |> Enum.join(" ")
       end
 
       @doc """
-      
+
        Generate a text string by the Markov chain algorithm.
-      
+
        Depending on the min_chars, returns a random valid looking text. The algorithm
        generates a weighted table with the specified number of words as the index and the
        possible following words as the value.
-      
-       Return `String`
-      
-       ## example 'Alice, swallowing down her flamingo, and began by taking the little golden key'
-      
-       param int min_char Minimum number of characters the text should contain (maximum: 8)
-       param int $max_char Maximum number of characters the text should contain (minimum: 10)
-      
+
+
+       `min_char` Minimum number of characters the text should contain (minimum: 160)
+       `max_char` Maximum number of characters the text should contain (maxmum: 160)
+
+       ## Example
+
+          iex> Faker.Core.Text.real_text_between()
+              "Alice, swallowing down her flamingo, and began by taking the little golden key"
+       ## example
+
       """
+      @spec real_text_between(min_char :: Integer.t(), max_char :: Integer.t()) :: String.t()
       def real_text_between(min_char \\ 160, max_char \\ 160) do
         min_words =
           splited_text()
@@ -517,20 +518,22 @@ defmodule Faker.Core.Text do
       @doc """
       Get real text based on the length of the charcher
       """
+      @spec real_text(max_char :: Integer.t()) :: String.t()
       def real_text(max_char \\ 200) do
         real_text_between(max_char, max_char)
       end
 
       @doc """
       Strips whitespace (or other characters) from the end of a string
-      
+
       Returns `String`
-      
+
       ## Example
-      
+
             iex> Faker.Core.Text.right_trim("Kamaro.Lambert", ".")
                 "Kamaro"
       """
+      @spec right_trim(string :: String.t(), separator :: String.t()) :: String.t()
       def right_trim(string, separator \\ " ") do
         string
         |> String.split(separator)
@@ -539,14 +542,15 @@ defmodule Faker.Core.Text do
 
       @doc """
       Strips whitespace (or other characters) from the end of a string
-      
+
       Returns `String`
-      
+
       ## Example
-      
+
             iex> Faker.Core.Text.left_trim("Kamaro.Lambert", ".")
                 "Lambert"
       """
+      @spec left_trim(string :: String.t(), separator :: String.t()) :: String.t()
       def left_trim(string, separator \\ " ") do
         string
         |> String.split(separator)
