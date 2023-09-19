@@ -167,11 +167,11 @@ defmodule Faker.Core.Color do
 
       @doc """
        Generates hex color
-      
+
        Returns `String`
-      
+
        ## Examples
-      
+
         iex> Faker.Core.Color.hex_color
             "#fa3cc2"
       """
@@ -186,9 +186,9 @@ defmodule Faker.Core.Color do
 
       @doc """
        Generates safe hex color
-      
+
        Returns `String`
-      
+
        ## Examples
         iex> Faker.Core.Color.safe_hex_color
             "#ff0044"
@@ -211,9 +211,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates an array of rgb
-      
+
       Returns `List`
-      
+
        ## Examples
         iex> Faker.Core.Color.rgb_color_as_array
             [0,255,122]
@@ -230,9 +230,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates RGB color
-      
+
       Returns `String`
-      
+
       ## Examples
         iex> Faker.Core.Color.rgb_color
              "0,255,122"
@@ -243,9 +243,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates RGB color for CSS
-      
+
       Returns `String`
-      
+
       ## Examples
         iex> Faker.Core.Color.rgb_css_color
             "rgba(0,255,122,0.8)"
@@ -260,9 +260,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates a safe color name
-      
+
       Returns `String`
-      
+
       ## Examples
         iex> Faker.Core.Color.safe_color_name
             "silver"
@@ -271,9 +271,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates color
-      
+
       Returns `String`
-      
+
       ## Examples
         iex> Faker.Core.Color.color_name
             "floral_white"
@@ -282,16 +282,16 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates hsl color array
-      
+
       Returns `List`
-      
+
       ## Examples
         iex> Faker.Core.Color.hsl_color_as_list
-            [348, 85, 51]
+            [99, 85, 51]
       """
       def hsl_color_as_list() do
         [
-          number_between(0, 360),
+          number_between(0, 100),
           number_between(0, 100),
           number_between(0, 100)
         ]
@@ -299,9 +299,9 @@ defmodule Faker.Core.Color do
 
       @doc """
       Generates hsl color
-      
+
       Returns `String`
-      
+
       ## Examples
         iex> Faker.Core.Color.hsl_color
             "340,50,20"

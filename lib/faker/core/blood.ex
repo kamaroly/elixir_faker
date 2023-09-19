@@ -5,9 +5,9 @@ defmodule Faker.Core.Blood do
 
       @doc """
       Generates a random blood group
-      
+
       Returns `String`
-      
+
       ## Examples
               iex> Faker.Core.Blood.blood_group
                   "A+"
