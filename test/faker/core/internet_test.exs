@@ -37,7 +37,6 @@ defmodule Faker.Core.InternetTest do
 
   test "generates a random password within the specified length range" do
     password = password(6, 20)
-    IO.inspect(password)
     assert String.length(password) >= 6
     assert String.length(password) <= 20
   end

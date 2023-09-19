@@ -265,15 +265,17 @@ defmodule Faker.Core.Internet do
       """
       def mac_address() do
         [
-          number_between(0, 0xFF) |> dec_to_hex(),
-          number_between(0, 0xFF) |> dec_to_hex(),
-          number_between(0, 0xFF) |> dec_to_hex(),
-          number_between(0, 0xFF) |> dec_to_hex(),
-          number_between(0, 0xFF) |> dec_to_hex(),
-          number_between(0, 0xFF) |> dec_to_hex()
+          number_between(0, 0xFF) |> mac_address_hex(),
+          number_between(0, 0xFF) |> mac_address_hex(),
+          number_between(0, 0xFF) |> mac_address_hex(),
+          number_between(0, 0xFF) |> mac_address_hex(),
+          number_between(0, 0xFF) |> mac_address_hex(),
+          number_between(0, 0xFF) |> mac_address_hex()
         ]
         |> Enum.join(":")
       end
+
+      def mac_address_hex(string), do: dec_to_hex(string) |> String.pad_leading(2, "0")
     end
   end
 end
