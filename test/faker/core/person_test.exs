@@ -16,8 +16,6 @@ defmodule Faker.Core.PersonTest do
   end
 
   test "name/1 should return a name for the specified gender" do
-    IO.inspect(name(:female))
-
     assert String.match?(name(:male), ~r/\w+/)
     assert String.match?(name(:female), ~r/\w+/)
   end

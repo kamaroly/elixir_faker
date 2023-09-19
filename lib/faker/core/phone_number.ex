@@ -263,7 +263,7 @@ defmodule Faker.Core.PhoneNumber do
 
       @doc """
       Returns random phone_number
-      
+
       Example: +11134567890
       """
       def e164_phone_number() do
