@@ -2556,26 +2556,17 @@ defmodule Faker.Core.Person do
       def title_male(), do: Enum.random(@title_male)
       def title_female(), do: Enum.random(@title_female)
 
-      def name(gender) when gender == "male" do
-        first_name(gender) <> " " <> last_name()
-      end
+      def name(), do: first_name() <> " " <> last_name()
+      def name(:male), do: first_name(:male) <> " " <> last_name()
+      def name(:female), do: first_name(:female) <> " " <> last_name()
 
-      def name() do
-        first_name() <> " " <> last_name()
-      end
-
-      def first_name(gender) when gender == "male" do
-        Enum.random(@first_name_male)
-      end
-
-      def first_name(gender) when gender == "female" do
-        Enum.random(@first_name_female)
-      end
+      def first_name(:male), do: Enum.random(@first_name_male)
+      def first_name(:female), do: Enum.random(@first_name_female)
 
       def first_name() do
         [
-          first_name("male"),
-          first_name("female")
+          first_name(:male),
+          first_name(:female)
         ]
         |> Enum.random()
       end

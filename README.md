@@ -93,10 +93,10 @@ iex>Faker.mobile_number
   iex>Faker.name
       "Bosco Hills"
 
-  iex>Faker.first_name("male")
+  iex>Faker.first_name(:male)
       "Graham"
 
-  iex>Faker.first_name("female")
+  iex>Faker.first_name(:female)
      " Ledner"
 
   iex>Faker.last_name
