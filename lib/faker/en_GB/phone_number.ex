@@ -1,5 +1,6 @@
 defmodule Faker.EnGB.PhoneNumber do
-  alias Faker.Core.Helper
+
+  use Faker.Core.Generator, only: [:numerify, :random_element]
 
   @formats [
     "+44(0)##########",
@@ -32,42 +33,42 @@ defmodule Faker.EnGB.PhoneNumber do
 
   @doc """
   Returns random phone_number
-  
+
   Example: "555-123-546"
   """
   def mobile_number(:localized) do
     @mobile_formats
     |> Enum.at(0)
-    |> Helper.numerify()
+    |> numerify()
   end
 
   def mobile_number(:localized_format) do
     @mobile_formats
     |> Enum.at(1)
-    |> Helper.numerify()
+    |> numerify()
   end
 
   def mobile_number(:localized_pretify) do
     @mobile_formats
     |> Enum.at(2)
-    |> Helper.numerify()
+    |> numerify()
   end
 
   def mobile_number() do
     @formats
-    |> Helper.random_element()
-    |> Helper.numerify()
+    |> random_element()
+    |> numerify()
   end
 
   @doc """
   Returns random phone_number
-  
+
   Example: +11134567890
   """
   def e164_phone_number() do
     @e164_formats
-    |> Helper.random_element()
-    |> Helper.numerify()
+    |> random_element()
+    |> numerify()
   end
 
   @doc """
@@ -81,6 +82,6 @@ defmodule Faker.EnGB.PhoneNumber do
      * @return int imei
   """
   def imei() do
-    Helper.numerify("##############")
+    numerify("##############")
   end
 end
